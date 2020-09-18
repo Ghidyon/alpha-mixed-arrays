@@ -1,25 +1,26 @@
-const arr = [1, "3ab", 2, "ef4", "g3h", 5];
-const newArray = [];
+const compute = arr => {
+    const newArray = [];
 
-const getNumbers = (item) => {
-    if (!isNaN(item)) {
-        newArray.push(Number(item));
+    const removeAlphanumerals = item => {
+        if (!isNaN(item)) {
+            newArray.push(item);
+        } else {
+            let getNumbers = Number(item.replace(/\D/g, ''));
+            newArray.push(getNumbers);
+        }
     }
-}
 
-const removeAlphanumerals = item => {
-    if (!isNaN(item)) {
-        //item is not an alphanumeral
-        newArray.push(item);
-    } else {
-        //item is an alphanumeral, therefore we convert to an array and loop throught to get the number
-        (Array.from(item)).forEach(getNumbers);
-    }
-}
-
-const filteredArray = () => {
     arr.forEach(removeAlphanumerals);
-    return newArray;
+
+    const filteredArray = newArray.sort((a, b) => b - a);
+    return filteredArray;
 }
 
-console.log(filteredArray());
+console.log(compute([1, "3ab", 2, "ef4", "g3h", 5]));
+
+
+
+
+/* const computeMean = arr => {
+    return mean
+} */
