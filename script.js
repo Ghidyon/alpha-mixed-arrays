@@ -1,20 +1,24 @@
 const computeMean = arr => {
     let sumOfItems = arr.reduce((a, b) => a + b);
-    return sumOfItems / arr.length;
+    let mean = sumOfItems / arr.length;
+    return mean;
 }
 
 const computeMedian = arr => {
     let arrIndex = arr.length / 2;
     if (arr.length % 2 === 0) {
-        return (arr[arrIndex] + arr[arrIndex - 1]) / 2;
+        let median = (arr[arrIndex] + arr[arrIndex - 1]) / 2;
+	return median;
     } else {
-        return arr[Math.floor(arrIndex)];
+        let median = arr[Math.floor(arrIndex)];
+	return median;
     }
 }
 
 const computeMode = arr => {
     //Using the formular gotten from the empirical relationship between mean, median and mode
-    return computeMean(arr) - 3 * (computeMean(arr) - computeMedian(arr));
+    let mode = computeMean(arr) - 3 * (computeMean(arr) - computeMedian(arr));
+    return mode;
 }
 
 const compute = arr => {
